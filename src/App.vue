@@ -2,10 +2,9 @@
 
   <div id="app">
 	
-	<video autoplay="true">
-		<!-- <source src="./assets/video/aa.mp4" type=""> -->
-		<source src="http://mvideo.spriteapp.cn/video/2017/0716/75ebf2f6-6a02-11e7-97cf-1866daeb0df1_wpc.mp4" type="">
+	<video id="video " v-on:play="getplayer"  v-red src="http://v3.365yg.com/df8d1b31882ea2c8f548983762681bd3/596c4572/video/m/220a67d34029bc443bf912ec970e482bd4911475f800001905508e11aa/" >
 	</video>
+	<p id="pp"></p>
 	<el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
 	  <el-menu-item index="1">处理中心</el-menu-item>
 	  <el-submenu index="2">
@@ -18,8 +17,9 @@
 	</el-menu>
   </div>
 </template>
-
 <script>
+import Vue from 'vue'
+import axios from 'axios'
 export default {
   name: 'app',
    data() {
@@ -28,9 +28,21 @@ export default {
         activeIndex2: '1'
       };
     },
+    created(){
+    	// this.getplayer()
+    },
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+      },
+      getplayer(){
+      	 axios.get('http://localhost/src/assets/php/post.php')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       }
     }
 }
@@ -38,6 +50,6 @@ export default {
 </script>
 	
 <style>
-	video{min-width:70%;height:80%;position: fixed;right:15%;bottom: 10%;width: auto;}
+	video{min-width:70%;height:80%;position: fixed;left:5%;bottom: 10%;width: auto;}
 	.el-menu-demo{opacity: 0.7;background: #666}
 </style>

@@ -10,6 +10,12 @@ Vue.use(ElementUI, { locale })
 import '@/assets/app'
 Vue.config.productionTip = false
 
+Vue.directive('red', {
+            bind: function(el, binding, vnode) {
+                el.play();
+            }
+        })
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
