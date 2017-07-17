@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import App from './App'
-import router from './router'
+import App from './App.vue'
+import router from '@/router'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
+import Axios from 'axios'
 
 Vue.use(ElementUI, { locale })
 
@@ -21,5 +22,7 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  }
 })
