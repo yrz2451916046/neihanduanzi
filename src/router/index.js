@@ -6,6 +6,7 @@ import Picture from '@/views/picture/picture'
 import Tuijian from '@/views/tuijian/tuijian'
 import Video from '@/views/video/video'
 import Home from '@/views/home/index'
+import video from '@/components/fullvd'
 
 Vue.use(VueRouter)
 let router = new VueRouter({
@@ -14,7 +15,7 @@ let router = new VueRouter({
     routes:[
         {
             path:'/',
-            component:Home
+            component:video
         },
         {
             path:'/home',

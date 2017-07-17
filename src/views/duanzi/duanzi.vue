@@ -1,15 +1,13 @@
 <template>
-  <div>
+  <div >
       这里是段子
-       <!-- <div v-for="item in data">{{item.group.text}}</div>  -->
+       <div v-for="item in data" class="duanzi">
+          <span>{{item.group.video_id}}</span>
+       </div>
   </div>
 </template>
 <script>
-// import jsonp from 'jsonp'
-import Vue from 'vue'
-// import VueAwesomeSwiper from 'vue-awesome-swiper'
-// Vue.use(VueAwesomeSwiper)
-// import Swipe from '@/components/Swipe'
+import axios from "axios";
 export default {
   name:'duanzi',
   data () {
@@ -19,36 +17,22 @@ export default {
   },
   created () {
     this.getText()
-    // this.getJsonp()
-  },
-  components:{
-    // swipe:Swipe
   },
   methods: {
     getText () {
-    this.$http.get('http://iu.snssdk.com/neihan/stream/mix/v1/',{
-        params:{
-            
-        }
-    })
-        .then((res) => {
-        this.data = res
-        console.log("1hdyhdhy")
-        })
-        .catch((error) => {
-        console.log(error)
-        })
-    },
-    // getJsonp () {
-    // jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', null, function (err, data) {
-    //     if (err) {
-    //     console.error(err.message);
-    //     } else {
-    //     console.log(data);
-    //     }
-    // });
-
-    // }
-}
+      var that = this;
+      axios.get('http://localhost/src/assets/php/post.php?id=-101')
+          .then(function (response) {
+            console.log(response.data.data.data);
+            that.data = response.data.data.data;
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+   }
+ }
 }
 </script>
+<style>
+  .duanzi{width:80%;height:auto;border: 1px solid red; padding: 20px;}
+</style>
