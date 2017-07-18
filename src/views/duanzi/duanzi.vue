@@ -30,16 +30,7 @@ export default {
             }
       }, response => {
           // error callback
-
       })
-      // this.$http.get(url)
-      //     .then((res) => {
-      //       console.log(res);
-      //       this.data = res.data.data.data
-      //     })
-      //     .catch((error) => {
-      //       console.log(error)
-      //     })
    }
  }
 }
