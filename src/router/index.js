@@ -14,8 +14,7 @@ let router = new VueRouter({
     linkActiveClass:'active',
     routes:[
         {
-            path:'/',
-            component:video
+            path:'/'
         },
         {
             path:'/home',

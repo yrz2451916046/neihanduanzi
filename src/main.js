@@ -7,7 +7,7 @@ import Axios from 'axios'
 
 Vue.use(ElementUI, { locale })
 
-
+Vue.prototype.Axios = "$http";
 import '@/assets/app'
 Vue.config.productionTip = false
 

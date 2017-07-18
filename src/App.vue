@@ -2,8 +2,8 @@
 
   <div id="app">
 
-	<el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-	  <el-menu-item index="1" class="index1"><router-link to="/duanzi" exact tag="li"> <a> 段子 </a></router-link></el-menu-item>
+	<el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" >
+	  <el-menu-item index="1" class="index1"><router-link to="/duanzi" > <a> 段子 </a></router-link></el-menu-item>
 	  
 	  <el-menu-item index="2" class = "index2"><a href="#" target="_blank">视频</a></el-menu-item>
 	  <el-submenu index="3" class = 'index3'>

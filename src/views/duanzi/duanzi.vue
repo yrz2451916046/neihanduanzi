@@ -1,18 +1,18 @@
 <template>
   <div >
-      这里是段子
-       <div v-for="item in data" class="duanzi">
-          <span>{{item.group}}</span>
+       <div v-for="item in num" class="duanzi">
+          <span>{{item.text}}</span>
        </div>
   </div>
 </template>
 <script>
-import axios from "axios";
+import Axios from 'axios'
 export default {
   name:'duanzi',
   data () {
     return {
-      data: {}
+      data: {},
+      num:[]
     }
   },
   created () {
@@ -21,15 +21,25 @@ export default {
   methods: {
     getText () {
       var that = this;
-      var url = "/php/src/assets/php/post.php?id=-101"
-      axios.get(url)
-          .then(function (response) {
-            console.log(response.data.data.data);
-            that.data = response.data.data.data;
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+      var url = "http://localhost/src/assets/php/post1.php?id=-102";
+      Axios.get(url).then(response => {
+          console.log(response.data.data.data);
+          this.data =response.data.data.data;
+           for (var i = 0; i < that.data.length; i++) {
+              this.num.push(that.data[i].group);
+            }
+      }, response => {
+          // error callback
+
+      })
+      // this.$http.get(url)
+      //     .then((res) => {
+      //       console.log(res);
+      //       this.data = res.data.data.data
+      //     })
+      //     .catch((error) => {
+      //       console.log(error)
+      //     })
    }
  }
 }
