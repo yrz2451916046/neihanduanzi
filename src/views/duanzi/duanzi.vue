@@ -2,7 +2,7 @@
   <div >
       这里是段子
        <div v-for="item in data" class="duanzi">
-          <span>{{item.group.video_id}}</span>
+          <span>{{item.group}}</span>
        </div>
   </div>
 </template>
@@ -21,7 +21,8 @@ export default {
   methods: {
     getText () {
       var that = this;
-      axios.get('http://localhost/src/assets/php/post.php?id=-101')
+      var url = "/php/src/assets/php/post.php?id=-101"
+      axios.get(url)
           .then(function (response) {
             console.log(response.data.data.data);
             that.data = response.data.data.data;

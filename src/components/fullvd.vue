@@ -20,7 +20,9 @@
     },
     methods:{
     	getTest(){
-    		axios.get('http://localhost/src/assets/php/post.php?id=-101')
+    		// var url = "http://localhost/src/assets/php/post.php?id=-101";
+    		var url = "/php/src/assets/php/post.php?id=-101"
+    		axios.get(url)
 	        .then(function (response) {
 	          console.log(response);
 	        })
