@@ -11,7 +11,7 @@
       </div>
       <div class="text">{{item.text}}</div>
    </div>
-   <a href="http://localhost:8080/duanzi"><sapn class="flush">刷新</sapn></a>
+   <a href="http://localhost:8080/duanzi"><span class="flush">刷新</span></a>
   </div>
 </template>
 <script>
@@ -30,7 +30,7 @@ export default {
   methods: {
     getText () {
       var that = this;
-      var url = "http://bxu2359590376.my3w.com/php/post1.php?id=-102";
+      var url = "http://localhost/src/assets/php/post1.php?id=-102";
       Axios.get(url).then(response => {
           // console.log(response.data.data.data);
           this.data =response.data.data.data;
@@ -96,7 +96,7 @@ export default {
   }
   .text{
     font-size: 0.12rem;
-    line-height: 0.14rem;
+    line-height: 0.22rem;
     text-indent: 0.24rem;
     letter-spacing: 0.01rem;
   }
