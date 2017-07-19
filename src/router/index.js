@@ -14,7 +14,8 @@ let router = new VueRouter({
     linkActiveClass:'active',
     routes:[
         {
-            path:'/'
+            path:'/',
+            component:video
         },
         {
             path:'/home',
@@ -38,7 +39,7 @@ let router = new VueRouter({
             component:Tuijian
         },
         {
-            path:'video',
+            path:'/video',
             component:Video
         },
         {

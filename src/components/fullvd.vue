@@ -1,7 +1,7 @@
 <template>
-	<video id="video "   v-red src="./../assets/video/aa.mp4" loop="true" ></video>
+	<!-- <video id="video "   v-red src="./../assets/video/aa.mp4" loop="true" ></video> -->
 	
-	<!-- <video id="video "   v-red v-bind:src="url" ></video> -->
+	<video id="video "   v-red v-bind:src="url" loop="ture"></video>
 
 </template>
 
@@ -13,15 +13,15 @@
     name: 'fullvd',
     data(){
     	return{
-    		url:'/api/neihan/video/playback/1500282089.68/?video_id=11e71e7ccfb346dfa59412be5b73f9b5&quality=origin&line=0&is_gif=0&device_platform=android'
+    		url:'http://v1.365yg.com/d64f603bf80326358ffd91955d01ce62/596f112f/video/m/2208d1245062c0f437093ef7e939152ae17114a2e1000057a6c0e29618/'
     	}
     },
     created(){
     },
     methods:{
     	getTest(){
-    		// var url = "http://localhost/src/assets/php/post.php?id=-101";
-    		var url = "/php/src/assets/php/post.php?id=-101"
+    		 var url = "http://localhost/src/assets/php/post.php?id=-101";
+    		//var url = "/php/src/assets/php/post.php?id=-101"
     		axios.get(url)
 	        .then(function (response) {
 	          console.log(response);

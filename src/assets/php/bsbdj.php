@@ -1,11 +1,11 @@
 <?php 
 header('Access-Control-Allow-Origin:*');
-  if(!empty($_GET['id'])){
-   $id = $_GET['id'];
+  if(!empty($_GET['type'])){
+   $type = $_GET['type'];
   }else{
-    $id = -102;
+    $type = 41;
   }
-$data = array("webp"=>"1","essence"=>"1","content_type"=>$id,"message_cursor"=>"-1","count"=>"50","double_col_mode"=>"0","ac"=>"wifi","aid"=>"7","app_name"=>"joke_essay","ssmix"=>"a");  
+$data = array("showapi_appid"=>"40563","showapi_sign"=>"983100feb3364ed7bb63bd01e653fdcd","type"=>$type);  
  $data = http_build_query($data);  
  $opts = array(  
    'http'=>array(  
@@ -19,6 +19,6 @@ $data = array("webp"=>"1","essence"=>"1","content_type"=>$id,"message_cursor"=>"
  );  
  $cxContext = stream_context_create($opts);  
  // echo "$cxContext";
- $sFile = file_get_contents("http://iu.snssdk.com/neihan/stream/mix/v1/", false, $cxContext);  
+ $sFile = file_get_contents("http://route.showapi.com/255-1", false, $cxContext);  
  
  echo $sFile;  
