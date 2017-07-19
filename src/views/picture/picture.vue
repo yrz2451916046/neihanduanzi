@@ -40,14 +40,14 @@ export default {
     return {
       data: {},
        scrollHeight: 0,
-                scrollTop: 0,
-                containerHeight: 0,
-                loading: false,
-                allLoaded: false,
-                bottomText: '上拉加载更多...',
-                bottomStatus: '',
-                pageNo: 1,
-                totalCount: ''
+      scrollTop: 0,
+      containerHeight: 0,
+      loading: false,
+      allLoaded: false,
+      bottomText: '上拉加载更多...',
+      bottomStatus: '',
+      pageNo: 1,
+      totalCount: ''
     }
   },
   created () {
@@ -80,7 +80,7 @@ export default {
                 this.loading = false;
                 this.allLoaded = true;
             }
-         var url = "http://localhost/src/assets/php/post1.php?id=-103";
+         var url = "http://bxu2359590376.my3w.com/php/post1.php?id=-103";
          Axios.get(url).then(response => {
           console.log(response.data.data.data);
           
@@ -105,7 +105,7 @@ export default {
 }
 </script>
 <style>
-  .picture{max-width:60%;max-height:auto; padding: 20px;margin-left: 20%;margin-bottom: 40px;}
+  .picture{max-width:60%; padding: 20px;margin-left: 20%;margin-bottom: 40px;}
   .picture img{margin:0 auto;  }
    img{
      /*transition:all 0.5s;*/

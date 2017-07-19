@@ -1,7 +1,7 @@
 <template>
   <div >
-       <div v-for="item in num" class="duanzi">
-          <span>{{item.text}}</span>
+       <div v-for="item in data" class="duanzi">
+          <span>{{item.video_uri}}</span>
        </div>
   </div>
 </template>
@@ -21,10 +21,14 @@ export default {
   methods: {
     getText () {
       var that = this;
-      var url = "http://localhost/src/assets/php/bsbdj.php";
+      var page = 1;
+      var url = "http://localhost/src/assets/php/bsbdj.php?page="+page;
+      // var url = "http://bxu2359590376.my3w.com/php/bsbdj.php?page=1";
+     
       Axios.get(url).then(response => {
           console.log(response);
-          // this.data =response.data.data.data;
+          this.data =response.data.showapi_res_body.pagebean.contentlist;
+          console.log(this.data);
           //  for (var i = 0; i < that.data.length; i++) {
           //     this.num.push(that.data[i].group);
           //   }

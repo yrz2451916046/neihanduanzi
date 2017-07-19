@@ -5,7 +5,12 @@ header('Access-Control-Allow-Origin:*');
   }else{
     $type = 41;
   }
-$data = array("showapi_appid"=>"40563","showapi_sign"=>"983100feb3364ed7bb63bd01e653fdcd","type"=>$type);  
+  if(!empty($_GET['page'])){
+   $page = $_GET['page'];
+  }else{
+    $page = 1;
+  }
+$data = array("showapi_appid"=>"40563","showapi_sign"=>"983100feb3364ed7bb63bd01e653fdcd","type"=>$type,"page"=>$page);  
  $data = http_build_query($data);  
  $opts = array(  
    'http'=>array(  
