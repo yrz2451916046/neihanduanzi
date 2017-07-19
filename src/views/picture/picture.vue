@@ -10,15 +10,18 @@
     :auto-fill="false"
     @bottom-status-change="handleBottomChange"
     ref="loadmore">
-        <div v-for="item in data" class="picture">
-          <span>{{item.group.content}}</span><br/>
-          <span>{{item.group.user.name}}user.name</span><br/>
-          <span>{{item.group.category_name}}category_name</span>
-          <img v-lazy="item.group.large_image.url_list[0].url" v-bind:width="item.group.large_image.width" v-bind:height="item.group.large_image.height"></img><br/>
-          <span>{{item.group.favorite_count}}favorite_count</span>
-          <span>{{item.group.bury_count}}bury_count</span>
-          <span>{{item.group.comment_count}}comment_coun</span>
-          <span>{{item.group.share_count}}share_count</span>
+       <div v-for="item in data" class="picture">
+          <span class="head">
+            <img class="img" v-lazy="item.group.user.avatar_url" />
+            <span class="user_name">{{item.group.user.name}}</span><br/>
+          </span>
+          <img class="main_img" v-lazy="item.group.large_image.url_list[0].url" /><br/>
+          <span class="foot">
+            <i class="el-icon-star-on"><span>{{item.group.favorite_count}}</span></i>
+            <i class="el-icon-star-off"><span>{{item.group.bury_count}}</span></i>
+            <!-- <span>{{item.group.comment_count}}comment_coun</span> -->
+            <el-button class="share" type="primary" icon="share"><span>{{item.group.share_count}}</span></el-button>
+          </span>
        </div>
        <a href="http://localhost:8080/picture">刷新佛挡杀佛房</a>
         <div v-show="loading" slot="bottom" class="loading">
@@ -102,7 +105,7 @@ export default {
 }
 </script>
 <style>
-  .picture{max-width:60%;height:auto; padding: 20px;margin-left: 20%;margin-bottom: 40px;}
+  .picture{max-width:60%;max-height:auto; padding: 20px;margin-left: 20%;margin-bottom: 40px;}
   .picture img{margin:0 auto;  }
    img{
      /*transition:all 0.5s;*/
@@ -120,5 +123,36 @@ export default {
     100%{
       opacity: 1;
     }
+  }
+  .head{
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+  }
+  .img{
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    float: left;
+  }
+  .user_name{
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    margin-left: 7px;
+  }
+  .main_img{
+    float: left;
+    width: 500px;
+  }
+  .foot{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+  }
+  .share{
+    margin-left: 350px;
   }
 </style>
