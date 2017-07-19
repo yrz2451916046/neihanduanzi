@@ -4,12 +4,11 @@
           <span>{{item.group.content}}</span><br/>
           <span>{{item.group.user.name}}user.name</span><br/>
           <span>{{item.group.category_name}}category_name</span>
-          <img v-bind:src="item.group.large_image.url_list[0].url"></img><br/>
+          <img v-lazy="item.group.large_image.url_list[0].url" v-bind:width="item.group.large_image.width" v-bind:height="item.group.large_image.height"></img><br/>
           <span>{{item.group.favorite_count}}favorite_count</span>
           <span>{{item.group.bury_count}}bury_count</span>
           <span>{{item.group.comment_count}}comment_coun</span>
           <span>{{item.group.share_count}}share_count</span>
-
        </div>
   </div>
 </template>
@@ -19,8 +18,7 @@ export default {
   name:'duanzi',
   data () {
     return {
-      data: {},
-      num:{}
+      data: {}
     }
   },
   created () {
@@ -33,8 +31,7 @@ export default {
       var url = "http://localhost/src/assets/php/post1.php?id=-103";
       Axios.get(url).then(response => {
           console.log(response.data.data.data);
-          this.data =response.data.data.data;
-           
+          this.data =response.data.data.data; 
       }, response => {
           // error callback
       })
@@ -44,5 +41,22 @@ export default {
 </script>
 <style>
   .picture{max-width:60%;height:auto; padding: 20px;margin-left: 20%;margin-bottom: 40px;}
-  .picture img{margin:0 auto;}
+  .picture img{margin:0 auto;  }
+   img{
+     /*transition:all 0.5s;*/
+  }  
+   img[lazy=loading]{
+
+  }
+   img[lazy=loaded]{
+    animation:fade 0.5s;
+  }
+  @keyframes fade {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
 </style>

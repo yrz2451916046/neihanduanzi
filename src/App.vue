@@ -38,7 +38,7 @@ export default {
 </script>
 	
 <style>
-	body{background: #999}
+	/*body{background: #999}*/
 	div{width: 100%}
 	.el-menu-demo{z-index: 999}
 	a{text-decoration: none;}
