@@ -11,7 +11,7 @@
       </div>
       <div class="text">{{item.text}}</div>
    </div>
-   <a href="http://localhost:8080/duanzi"><span class="flush">刷新</span></a>
+<span class="flush" v-on:click="flush">刷新</span>
   </div>
 </template>
 <script>
@@ -30,7 +30,8 @@ export default {
   methods: {
     getText () {
       var that = this;
-      var url = "http://localhost/src/assets/php/post1.php?id=-102";
+      //var url = "http://localhost/src/assets/php/post.php?id=-102";
+      var url = "http://bxu2359590376.my3w.com/php/post1.php?id=-102";
       Axios.get(url).then(response => {
           // console.log(response.data.data.data);
           this.data =response.data.data.data;
@@ -41,6 +42,9 @@ export default {
       }, response => {
           // error callback
       })
+   },
+   flush(){
+    location.reload();
    }
  }
 }

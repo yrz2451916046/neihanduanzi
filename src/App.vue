@@ -1,7 +1,7 @@
 <template>
 
   <div id="app">
-
+  	
 	<el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" >
 	  <el-menu-item index="1" class="index1"><router-link to="/duanzi" > <span>推荐</span> </router-link></el-menu-item> 
 	  <el-menu-item index="2" class = "index2"><router-link to="/picture" ><span>图片</span> </router-link></el-menu-item>
@@ -17,6 +17,7 @@
   </div>
 </template>
 <script>
+import fullvd from "./components/fullvd"
 export default {
   name: 'app',
    data() {
@@ -32,13 +33,16 @@ export default {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
       }
+    },
+    components:{
+    	fullvd:fullvd
     }
 }
  
 </script>
 	
 <style>
-	span{font-size: 0.1rem}
+	span{font-size: 24px}
 	@media screen and (min-width: 320px) {html{font-size:312.5%;}}
 	@media screen and (min-width: 360px) {html{font-size:351.5625%;}}
 	@media screen and (min-width: 375px) {html{font-size:366.211%;}}
@@ -59,9 +63,11 @@ export default {
 	div{width: 100%}
 	.el-menu-demo{z-index: 999;position:fixed;width:100%;top: 0;}
 	a{text-decoration: none;}
-	.index1{padding-left: 30px; width: 20%;text-align: center;}
-	.index2{width: 20%;text-align: center;}
-	.index3{width: 20%;text-align: center;}
-	.index4{width: 20%;text-align: center;}
+	.index1{padding-left: 30px; width: 23%;text-align: center;}
+	.index2{width: 23%;text-align: center;}
+	.index3{width: 23%;text-align: center;}
+	.index4{width: 23%;text-align: center;}
 	.index5{width: 5%;text-align: center;}
+	fullvd{width:50px;}
+	.el-menu-demo{opacity: 0.7;background: #666}
 </style>

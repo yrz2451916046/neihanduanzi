@@ -1,6 +1,8 @@
 <template>
-  <div >
-       
+    <div>
+       <div class="blank">
+         
+       </div>
        <section class="finan">
     <!-- 上拉加载更多 -->
     <load-more
@@ -29,7 +31,7 @@
         </div>
     </load-more>
   </section>
-  </div>
+</div>
 </template>
 <script>
 import LoadMore from './../../components/common/loadmore.vue';
@@ -123,6 +125,11 @@ export default {
   @media screen and (min-width: 960px) {html{font-size:937.5%;}}
   .picture{width:100%;max-width: 1000px; padding: 20px;;margin-bottom: 40px;margin: 0 auto;box-sizing: border-box;}
   .picture img{margin:0 auto;  }
+  .blank{
+    height: 60px;
+  }
+   
+
    img{
      /*transition:all 0.5s;*/
   }  
